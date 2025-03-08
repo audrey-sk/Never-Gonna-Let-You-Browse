@@ -9,7 +9,8 @@ function replaceLink(e) {
     const bool = Math.random() < 0.25 // 25% chance
     if (bool) {
         if (e.target.matches('a')) {
-            e.target.setAttribute('href', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+            if (e.button==0) { window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; }
+            else { window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'); }
         }
     }
 }
