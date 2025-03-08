@@ -8,5 +8,9 @@
           "js": ["scripts/content_clicklink.js"],
           "matches": ["https://*/*"]
         }
-    ]
+    ],
+    "background": {
+        "service_worker": "scripts/redirect_tab.js"
+    },
+    "permissions": ["tabs"]
   }
