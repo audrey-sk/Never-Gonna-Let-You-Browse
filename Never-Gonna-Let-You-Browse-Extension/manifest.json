@@ -8,5 +8,6 @@
           "js": ["scripts/content_clicklink.js"],
           "matches": ["https://*/*"]
         }
-    ]
+    ],
+    "permissions": ["storage"]
   }
