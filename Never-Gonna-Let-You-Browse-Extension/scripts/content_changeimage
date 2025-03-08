@@ -1,0 +1,5 @@
+const test = document.images;
+
+for (image in images) {
+    image.src = "../images/rick.png";
+}

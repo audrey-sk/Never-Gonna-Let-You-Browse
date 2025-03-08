@@ -5,7 +5,7 @@
     "manifest_version": 3,
     "content_scripts": [
         {
-          "js": ["scripts/content_clicklink.js"],
+          "js": ["scripts/content_clicklink.js", "scripts/content_changeimage.js"],
           "matches": ["https://*/*"]
         }
     ],
