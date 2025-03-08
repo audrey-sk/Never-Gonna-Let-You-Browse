@@ -1,6 +1,6 @@
 {
     "name": "Never Gonna Let You Browse",
-    "description": "An extension that will gradually drive a person to rot via maddness",
+    "description": "An extension that will gradually drive a person's brain to rot via maddness",
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [

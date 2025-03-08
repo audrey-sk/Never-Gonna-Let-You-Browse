@@ -1,0 +1,60 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display:flex;
+    height: 100vh;
+    background: #160E0C; 
+}
+
+.background-container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+
+}
+
+h1{
+    font-size: 3em;
+    position: absolute;
+    top: 35vh;
+    right: 45vw;
+    color: #D7D8D2; 
+    text-align: center;
+    white-space: nowrap; /* Prevents text from wrapping */
+    display: inline-block;
+    overflow: hidden;
+    animation: typing 4s steps(15) 1s backwards, blink 0.3s step-end 1s forwards;
+  }
+
+  p{
+    font-size: 1.5em;
+    position: absolute;
+    top: 45vh;
+    right: 55vw;
+    color: #D7D8D2; 
+    text-align: center;
+    white-space: nowrap; /* Prevents text from wrapping */
+    display: inline-block;
+    overflow: hidden;
+  }
+ 
+  
+
+
+  /*circle overlay for profile pic*/
+  .profile-circle {
+    position: absolute;
+    top: 25vh;
+    right: 12.5vw;
+    width: 24vw;
+    height: 53vh;
+    background: url('rick-logo.jpg') no-repeat center center/cover; 
+    z-index: 1;
+  }
+
