@@ -1,0 +1,62 @@
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D7D8D2; 
+    border-radius: 0.5em;
+    width: 30vw;
+    height: 7vh;
+    position: absolute;
+    right: 50vw;
+    top: 5vh;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    position: relative;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 0 10px;
+    z-index: 1;
+    text-decoration: none;
+    text-align: center;
+}
+a:nth-child(1){
+    width: 8vw;
+}
+a:nth-child(2){
+    width: 8vw;
+}
+a:nth-child(3){
+    width: 8vw;
+}
+a:nth-child(4){
+    width: 8vw;
+}
+nav .animation {
+    position: absolute;
+    height: 100%;
+    background: #A2342B;
+    border-radius: 0.5em;
+    z-index: 0;
+    transition: 0.5s;
+    width: 8vw;
+    border-radius: 0.5em;
+}
+nav .start-home, a:nth-child(1):hover ~ .animation {
+    width: 7vw;
+    left: 0;
+}
+nav .start-home, a:nth-child(2):hover ~ .animation {
+    width: 7vw;
+    left: 8vw;
+}
+nav .start-home, a:nth-child(3):hover ~ .animation {
+    width: 6vw;
+    left: 16vw;
+}
+nav .start-home, a:nth-child(4):hover ~ .animation {
+    width: 5vw;
+    left: 24vw;
+}
