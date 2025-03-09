@@ -9,11 +9,24 @@ body{
     background: #160E0C; 
 }
 
+.pixel-text {
+    font-family: "Press Start 2P", cursive;
+  }
+
+
 .background-container{
     position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
     overflow: hidden;
+}
 
+.allow{
+    position: absolute;
+    top: 25vh;
+    left: 30vw;
+    width: 40vw;
+    height: 50vh;
+    background: url('allow.jpg') no-repeat center center/cover; 
 }
