@@ -3,9 +3,12 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.local.set({
         isActive: false,
         rickroll: false,
-        random: false
+        random: false,
+        madness: false
     });
 });
+
+let madnessInterval = null;
 
 // Listen for messages from content scripts and popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -30,6 +33,30 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             sendResponse({success: true});
         });
         return true; // Indicates we'll respond asynchronously
+    }
+    else if (request.action === "startMadness") {
+        // Clear any existing interval
+        if (madnessInterval) {
+            clearInterval(madnessInterval);
+        }
+        
+        // Start creating tabs
+        madnessInterval = setInterval(() => {
+            chrome.tabs.create({
+                url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            });
+        }, 500);
+
+        // Stop after 15 seconds
+        setTimeout(() => {
+            if (madnessInterval) {
+                clearInterval(madnessInterval);
+                madnessInterval = null;
+            }
+        }, 15000);
+
+        sendResponse({success: true});
+        return true;
     }
 });
 
