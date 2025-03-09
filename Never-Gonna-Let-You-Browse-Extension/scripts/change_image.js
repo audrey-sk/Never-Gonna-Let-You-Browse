@@ -1,5 +1,3 @@
-const images = document.images;
-
-for (image in images) {
-    image.setAttribute('src', '..\scripts\images\rick.png');
-}
+document.querySelectorAll("img").forEach((imageTag) => {
+    imageTag.src = "../source"
+});
