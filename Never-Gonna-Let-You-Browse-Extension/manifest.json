@@ -1,8 +1,14 @@
 {
     "name": "Never Gonna Let You Browse",
-    "description": "An extension that will gradually drive a person's brain to rot via maddness",
+    "description": "An extension that will gradually drive a person's brain to rot via madness",
     "version": "1.0",
     "manifest_version": 3,
+    "icons": {
+        "16": "images/rick-logo-18x16.png",
+        "32": "images/rick-logo-32x29.png",
+        "48": "images/rick-logo-48x43.png",
+        "128": "images/rick-logo-128x115.png"
+      },
     "content_scripts": [
         {
           "js": ["scripts/redirect_link.js"],
