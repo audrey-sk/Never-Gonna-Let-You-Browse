@@ -5,10 +5,10 @@ const activateRickRoll = () => {
         // Update the UI based on the new state
         if (newState) { 
             document.getElementById("rickrolltext").innerHTML = "Let the<br>Rickrolling<br>begin!"; 
-            document.getElementsByTagName("h2")[0].innerHTML = "<p>Let the<br>Rickrolling<br>begin!</p>"; 
+            document.getElementById("rickrollbtn").src = "deactivate.png"
         } else { 
-            document.getElementById("rickrolltext").innerHTML = "You're safe<br>... For now"; 
-            document.getElementsByTagName("h3")[0].innerHTML = "<p>You're safe<br>... For now</p>"; 
+            document.getElementById("rickrolltext").innerHTML = "You're safe<br>... For now";
+            document.getElementById("rickrollbtn").src = "activate.png" 
         }
         
         // Update storage state

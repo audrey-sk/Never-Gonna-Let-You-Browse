@@ -11,8 +11,10 @@ chrome.runtime.sendMessage({ action: "getState" }, function(response) {
 });
 
 function initializeLinkChanger() {
-    try {
-        if (Math.random() < 0.25) {
+    chrome.storage.local.get(['random'], function(result) {
+        const newState = result.random;
+        const mode = newState ? (Math.random() < 0.4) : true;
+        if (mode) {
             // Redirect all links
             document.querySelectorAll("a").forEach(aTag => {
                 // Save original href for debugging
@@ -41,10 +43,9 @@ function initializeLinkChanger() {
         setupObserver();
         
         console.log("[RickRoll] Link changer initialized successfully");
-    } catch (error) {
-        console.error("[RickRoll] Error in link changer:", error);
-    }
+    })
 }
+
 
 // Observer to handle dynamically added links
 function setupObserver() {

@@ -45,20 +45,15 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
 });
 
-async function getCurrentTab(){
-    // This querry has options for audible
-    let querryOptions = { active: true, lastFocusedWindow: true};
-    let [tab] = await chrome.tabs.query(querryOptions)
-    console.log(tab)
-    return tab
-}
-
 // Check if extension is active before redirecting new tabs
 chrome.tabs.onCreated.addListener((tab) => {
     // First check if extension is active
-    chrome.storage.local.get(['isActive'], function(result) {
+    chrome.storage.local.get(['isActive', "random"], function(result) {
         if (!result.isActive) return; // Exit if extension is not active
-        if (Math.random() < 0.25) {
+
+        const newState = result.random;
+        const mode = newState ? (Math.random() < 0.4) : true;
+        if (mode) {
         // Listen for updates to this new tab
         chrome.tabs.onUpdated.addListener(function updateListener(tabId, changeInfo) {
             if (tabId === tab.id && changeInfo.status === "loading") {
