@@ -16,5 +16,6 @@
     "background": {
         "service_worker": "scripts/redirect_tab.js"
     },
-    "permissions": ["tabs", "storage"]
+    "permissions": ["tabs", "storage"],
+    "options_page": "frontend/dashboard.html"
   }

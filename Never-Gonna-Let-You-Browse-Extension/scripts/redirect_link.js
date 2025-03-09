@@ -5,6 +5,30 @@ document.addEventListener('click', function(e){ replaceLink(e); });
 document.addEventListener('auxclick', function(e){ replaceLink(e); });
 
 function replaceLink(e) {
+
+    /*
+    var input = document.getElementById("input").value;
+    chrome.storage.sync.get(['allowed'], function(result) {
+        var allowed = result.allowed;
+        if (allowed == undefined) {
+            allowed = [];
+        }
+        allowed.push(input);
+        chrome.storage.sync.set({allowed: allowed}, function() {
+            console.log('Value is set to ' + allowed);
+        });
+    });
+    */
+   
+    /*
+    var test = chrome.storage.sync.get(['allowed'], function(result) {
+        var allowed = result.allowed;
+        if (allowed == undefined) {
+            allowed = [];
+        }
+    })
+    */
+
     //alert(e.target);
     const bool = Math.random() < 0.25 // 25% chance
     if (bool) {
