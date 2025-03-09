@@ -6,6 +6,6 @@ document.querySelectorAll("a").forEach(aTag => {
 
 document.querySelectorAll("button").forEach(btnTag => {
     if (Math.random() < 0.25) {
-        aTag.setAttribute("href", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        btnTag.setAttribute("href", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
-})
+});

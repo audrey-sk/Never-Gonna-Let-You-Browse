@@ -50,7 +50,7 @@ p{
 }
 
 
-/*circle overlay for profile pic*/
+/* overlay for profile pic*/
 .profile-circle {
   position: absolute;
   top: 25vh;
