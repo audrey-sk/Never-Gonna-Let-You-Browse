@@ -30,4 +30,4 @@ function removeURL(index) {
 }
 
 document.addEventListener("DOMContentLoaded", loadURLs);
-
+document.getElementById("submitbtn").onclick = addURL;
