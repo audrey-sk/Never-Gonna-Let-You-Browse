@@ -34,9 +34,7 @@ a:nth-child(2){
 a:nth-child(3){
     width: 16vw;
 }
-a:nth-child(4){
-    width: 16vw;
-}
+
 nav .animation {
     position: absolute;
     height: 100%;
@@ -49,17 +47,13 @@ nav .animation {
 }
 nav .start-home, a:nth-child(1):hover ~ .animation {
     width: 8vw;
-    left: -10vw;
+    left: -3vw;
 }
 nav .start-home, a:nth-child(2):hover ~ .animation {
-    width: 10vw;
-    left: 2vw;
+    width: 11vw;
+    left: 8vw;
 }
 nav .start-home, a:nth-child(3):hover ~ .animation {
     width: 10vw;
-    left: 17vw;
-}
-nav .start-home, a:nth-child(4):hover ~ .animation {
-    width: 10vw;
-    left: 30vw;
+    left: 23vw;
 }
