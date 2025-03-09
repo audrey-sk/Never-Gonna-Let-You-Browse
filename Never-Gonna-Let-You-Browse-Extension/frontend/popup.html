@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NeverGonnaLetYouBrowse</title>
+  <link rel="favicon" type="image/jpg" href="rick-logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="profile">
+            <img src="rick-logo.jpg" alt="profile pic" class="profile-circle"> 
+        </div>
+        <nav>
+            <a href="index.html" onclick="loadPage('index.html')" class="pixel-text" >About Us</a>
+            <a href="dashboard.html" onclick="loadPage('dashboard.html')" class="pixel-text">Dashboard</a>
+            <a href="block.html" onclick="loadPage('block.html')" class="pixel-text">Blocked</a>
+            <div class="animation start-home"></div>
+        </nav>
+        <h2 class="pixel-text"> You're safe <br>... For now </h2>
+        <img src="Activate.png" alt="Activate" class="activate">
+</body>
+</html>
+
+<style>
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display:flex;
+  height: 100vh;
+  background: #160E0C; 
+}
+
+.background-container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+
+}
+.pixel-text {
+  font-family: "Press Start 2P", cursive;
+}
+h2{
+    position: absolute;
+    color: #D7D8D2; 
+    top: 25vh;
+    left: 50vw;
+    font-size: 2em;
+}
+.profile-circle {
+  position: absolute;
+  top: 20vh;
+  right: 60vw;
+  width: 24vw;
+  height: 53vh;
+  background: url('rick-logo.jpg') no-repeat center center/cover; 
+  z-index: 1;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D7D8D2; 
+    border-radius: 0.5em;
+    width: 30vw;
+    height: 7vh;
+    position: absolute;
+    right: 35vw;
+    top: 80vh;
+}
+.pixel-text {
+    font-family: "Press Start 2P", cursive;
+  }
+.activate{
+    position: absolute;
+    top: 35vh;
+    left: 45vw;
+    width: 35vw;
+    height: 35vh;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    position: relative;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 3vw; 
+    z-index: 1;
+    text-decoration: none;
+    text-align: center;
+}
+a:nth-child(1){
+    width: 16vw;
+}
+a:nth-child(2){
+    width: 16vw;
+}
+a:nth-child(3){
+    width: 16vw;
+}
+
+nav .animation {
+    position: absolute;
+    height: 100%;
+    background: #A2342B;
+    border-radius: 0.5em;
+    z-index: 0;
+    transition: 0.5s;
+    width: 5vw;
+    border-radius: 0.5em;
+}
+nav .start-home, a:nth-child(1):hover ~ .animation {
+    width: 8vw;
+    left: -3vw;
+}
+nav .start-home, a:nth-child(2):hover ~ .animation {
+    width: 11vw;
+    left: 8vw;
+}
+nav .start-home, a:nth-child(3):hover ~ .animation {
+    width: 10vw;
+    left: 23vw;
+}
+
+
+
+</style>
