@@ -9,6 +9,11 @@ body{
     background: #160E0C; 
 }
 
+.pixel-text {
+    font-family: "Press Start 2P", cursive;
+  }
+
+
 .background-container{
     position: relative;
     width: 100vw;

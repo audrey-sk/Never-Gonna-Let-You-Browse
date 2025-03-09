@@ -17,3 +17,59 @@ body{
     overflow: hidden;
 
 }
+
+.pixel-text {
+    font-family: "Press Start 2P", cursive;
+  }
+
+h2{
+    position: absolute;
+    color: #D7D8D2; 
+    top: 25vh;
+    left: 30vw;
+    font-size: 2em;
+}
+
+h3{
+    position: absolute;
+    color: #D7D8D2; 
+    top: 25vh;
+    font-size: 2em;
+    left: 75vw;
+}
+
+.video{
+    position: absolute;
+    top: 25vh;
+    left: -5vw;
+    width: 50vw;
+    height: 50vh;
+    
+  }
+
+  .video2{
+    position: absolute;
+    top: 25vh;
+    left: 35vw;
+    width: 50vw;
+    height: 50vh;
+
+  }
+
+.activate{
+    position: absolute;
+    top: 35vh;
+    left: 25vw;
+    width: 25vw;
+    height: 25vh;
+}
+
+.activate2{
+    position: absolute;
+    top: 35vh;
+    left: 70vw;
+    width: 25vw;
+    height: 25vh;
+}
+
+  

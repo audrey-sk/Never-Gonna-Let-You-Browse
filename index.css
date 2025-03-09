@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     display:flex;
     height: 100vh;
@@ -18,9 +19,12 @@ body{
     overflow: hidden;
 
 }
+.pixel-text {
+    font-family: "Press Start 2P", cursive;
+  }
 
 h1{
-    font-size: 3em;
+    font-size: 1.3em;
     position: absolute;
     top: 35vh;
     right: 45vw;
@@ -33,10 +37,11 @@ h1{
   }
 
   p{
-    font-size: 1.5em;
+    font-size: 1.1em;
     position: absolute;
     top: 45vh;
-    right: 55vw;
+    right: 43vw;
+    line-height: 3em;
     color: #D7D8D2; 
     text-align: center;
     white-space: nowrap; /* Prevents text from wrapping */
@@ -44,8 +49,6 @@ h1{
     overflow: hidden;
   }
  
-  
-
 
   /*circle overlay for profile pic*/
   .profile-circle {

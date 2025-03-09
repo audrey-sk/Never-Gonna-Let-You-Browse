@@ -7,32 +7,35 @@ nav {
     width: 30vw;
     height: 7vh;
     position: absolute;
-    right: 50vw;
+    right: 35vw;
     top: 5vh;
 }
+.pixel-text {
+    font-family: "Press Start 2P", cursive;
+  }
 
 nav a {
     display: inline-block;
     color: white;
     position: relative;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 500;
-    padding: 0 10px;
+    margin: 3vw; 
     z-index: 1;
     text-decoration: none;
     text-align: center;
 }
 a:nth-child(1){
-    width: 8vw;
+    width: 16vw;
 }
 a:nth-child(2){
-    width: 8vw;
+    width: 16vw;
 }
 a:nth-child(3){
-    width: 8vw;
+    width: 16vw;
 }
 a:nth-child(4){
-    width: 8vw;
+    width: 16vw;
 }
 nav .animation {
     position: absolute;
@@ -41,22 +44,22 @@ nav .animation {
     border-radius: 0.5em;
     z-index: 0;
     transition: 0.5s;
-    width: 8vw;
+    width: 5vw;
     border-radius: 0.5em;
 }
 nav .start-home, a:nth-child(1):hover ~ .animation {
-    width: 7vw;
-    left: 0;
+    width: 8vw;
+    left: -10vw;
 }
 nav .start-home, a:nth-child(2):hover ~ .animation {
-    width: 7vw;
-    left: 8vw;
+    width: 10vw;
+    left: 2vw;
 }
 nav .start-home, a:nth-child(3):hover ~ .animation {
-    width: 6vw;
-    left: 16vw;
+    width: 10vw;
+    left: 17vw;
 }
 nav .start-home, a:nth-child(4):hover ~ .animation {
-    width: 5vw;
-    left: 24vw;
+    width: 10vw;
+    left: 30vw;
 }
