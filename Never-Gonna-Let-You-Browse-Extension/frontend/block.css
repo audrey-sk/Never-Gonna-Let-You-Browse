@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 body{
-    display:flex;
     height: 100vh;
     background: #160E0C; 
 }
@@ -13,12 +12,108 @@ body{
     font-family: "Press Start 2P", cursive;
   }
 
+  h2{
+    position: absolute;
+    color: #D7D8D2; 
+    top: 20vh;  /* Adjust this to move the input field down */
+    left: 30vw;
+    font-size: 1em;
+  }
 
-.background-container{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    overflow: hidden;
+  h3{
+    position: absolute;
+    color: #D7D8D2; 
+    top: 67vh;  /* Adjust this to move the input field down */
+    left: 30vw;
+    font-size: 1em;
 
+  }
+
+  .url-list {
+    position: absolute; 
+    width: 43vw;
+    height: 40vh;
+    border: 2px solid #A2342B;
+    background-color: #333;
+    border-radius: 8px;
+    top: 25vh; /* Adjust this to move the .url-list down */
+    left: 30vw; 
+}
+
+/* Style for links */
+.url-list a {
+    color: #A2342B;
+    text-decoration: none;
+    top: 3vh; /* Adjust this to move the .url-list down */
+    padding: 10px; /* Add padding to avoid content touching edges */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    left: 7vw;
+    
+    
+}
+
+.url-list a:hover {
+    text-decoration: underline;
+}
+
+/* Style for input field */
+#urlInput {
+    width: 35vw;
+    height: 10vh;
+    top: 67vh;  /* Adjust this to move the input field down */
+    left: 30vw; /* Adjust this to move the input field horizontally */
+    position: absolute;  /* Add this to make 'top' and 'left' work */
+    font-size: 14px;
+    border: 2px solid #A2342B;
+    border-radius: 5px;
+    outline: none;
+    background-color: #111;
+    color: #D7D8D2; 
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+/* Style for submit button */
+button {
+    margin-top: 10px;
+    font-size: 14px;
+    position: absolute;  /* Add this to make 'top' work */
+    height: 10vh;
+    width: 7vw;
+    top: 66vh;  /* Adjust this to move the input field down */
+    left: 66vw; 
+    font-family: 'Press Start 2P', cursive;
+    background-color: #A2342B;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 } 
+button:hover {
+    background-color: #A2342B;
+}
+
+.url-list p {
+    display: flex;
+    align-items: center; 
+    gap: 10px; /* Add space between link and button */
+}
+
+.url-list button {
+    height: 30px;
+    width: 80px;
+    position: relative;
+    top: 1vh;
+    left: 25vw;
+    font-size: 12px;
+    background-color: #A2342B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.url-list button:hover {
+    background-color: #8F2D25; /* Darker red on hover */
+}
