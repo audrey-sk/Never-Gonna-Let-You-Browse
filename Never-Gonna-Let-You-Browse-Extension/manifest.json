@@ -6,16 +6,26 @@
     "content_scripts": [
         {
           "js": ["scripts/redirect_link.js"],
-          "matches": ["https://*/*"]
+          "matches": ["<all_urls>"],
+          "run_at": "document_end"
         },
         {
           "js": ["scripts/change_image.js"],
-          "matches": ["https://*/*"]
+          "matches": ["<all_urls>"],
+          "run_at": "document_end"
         }
     ],
     "background": {
         "service_worker": "scripts/redirect_tab.js"
     },
-    "permissions": ["tabs", "storage"],
+    "action": {
+        "default_popup": "frontend/popup.html"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab"
+    ],
+    "host_permissions": ["<all_urls>"],
     "options_page": "frontend/dashboard.html"
-  }
+}

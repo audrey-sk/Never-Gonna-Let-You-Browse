@@ -3,133 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <title>NeverGonnaLetYouBrowse</title>
-  <link rel="favicon" type="image/jpg" href="rick-logo.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="background-container">
-        <div class="profile">
-            <img src="rick-logo.jpg" alt="profile pic" class="profile-circle"> 
+    <div class="container">
+        <div class="header">
+            <img src="rick-logo.jpg" alt="Rick Roll" class="logo">
+            <h1 class="pixel-text">Never Gonna</h1>
         </div>
-        <nav>
-            <a href="index.html" class="pixel-text" >About Us</a>
-            <a href="dashboard.html"class="pixel-text">Dashboard</a>
-            <a href="block.html" class="pixel-text">Blocked</a>
-            <div class="animation start-home"></div>
-        </nav>
-        <h2 class="pixel-text"> You're safe <br>... For now </h2>
-        <img src="Activate.png" alt="Activate" class="activate">
+        <button id="toggleButton" class="toggle-btn pixel-text">ACTIVATE</button>
+        <div id="status" class="status"></div>
+    </div>
 </body>
-</html>
 
 <style>
-    *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-  display:flex;
-  height: 100vh;
-  background: #160E0C; 
-}
-
-.background-container{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-
-}
-.pixel-text {
-  font-family: "Press Start 2P", cursive;
-}
-h2{
-    position: absolute;
-    color: #D7D8D2; 
-    top: 25vh;
-    left: 50vw;
-    font-size: 2em;
-}
-.profile-circle {
-  position: absolute;
-  top: 20vh;
-  right: 60vw;
-  width: 24vw;
-  height: 53vh;
-  background: url('rick-logo.jpg') no-repeat center center/cover; 
-  z-index: 1;
-}
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #D7D8D2; 
-    border-radius: 0.5em;
-    width: 30vw;
-    height: 7vh;
-    position: absolute;
-    right: 35vw;
-    top: 80vh;
-}
-.pixel-text {
+body {
+    width: 200px;
+    height: 180px;
+    background: #160E0C;
+    color: #D7D8D2;
     font-family: "Press Start 2P", cursive;
-  }
-.activate{
-    position: absolute;
-    top: 35vh;
-    left: 45vw;
-    width: 35vw;
-    height: 35vh;
 }
 
-nav a {
-    display: inline-block;
-    color: white;
-    position: relative;
-    font-size: 1em;
-    font-weight: 500;
-    margin: 3vw; 
-    z-index: 1;
-    text-decoration: none;
-    text-align: center;
-}
-a:nth-child(1){
-    width: 16vw;
-}
-a:nth-child(2){
-    width: 16vw;
-}
-a:nth-child(3){
-    width: 16vw;
+.container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
 }
 
-nav .animation {
-    position: absolute;
-    height: 100%;
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 12px;
+}
+
+.toggle-btn {
     background: #A2342B;
-    border-radius: 0.5em;
-    z-index: 0;
-    transition: 0.5s;
-    width: 5vw;
-    border-radius: 0.5em;
-}
-nav .start-home, a:nth-child(1):hover ~ .animation {
-    width: 8vw;
-    left: -3vw;
-}
-nav .start-home, a:nth-child(2):hover ~ .animation {
-    width: 11vw;
-    left: 8vw;
-}
-nav .start-home, a:nth-child(3):hover ~ .animation {
-    width: 10vw;
-    left: 23vw;
+    color: #D7D8D2;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Press Start 2P", cursive;
+    font-size: 12px;
+    transition: all 0.3s ease;
 }
 
+.toggle-btn:hover {
+    opacity: 0.9;
+}
 
+.toggle-btn.active {
+    background: #2BA234;
+}
 
+.status {
+    font-size: 9px;
+    text-align: center;
+    height: 20px;
+    color: #A2342B;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggleButton');
+    const statusEl = document.getElementById('status');
+    
+    // Load initial state
+    chrome.storage.local.get(['isActive'], function(result) {
+        updateUI(result.isActive);
+    });
+
+    // Toggle functionality
+    toggleButton.addEventListener('click', function() {
+        // Disable button during transition
+        toggleButton.disabled = true;
+        
+        const isActive = !toggleButton.classList.contains('active');
+        updateUI(isActive);
+        
+        // Show status message
+        statusEl.textContent = isActive ? 'Activating...' : 'Deactivating...';
+        statusEl.classList.add('blink');
+        
+        // Send message to background script
+        chrome.runtime.sendMessage({
+            action: "setState",
+            isActive: isActive
+        }, function(response) {
+            if (response && response.success) {
+                // Update status
+                statusEl.textContent = isActive ? 'ACTIVATED! Reloading...' : 'DEACTIVATED! Reloading...';
+                
+                // Reload current tab to apply changes
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                    if (tabs[0]) {
+                        chrome.tabs.reload(tabs[0].id);
+                    }
+                    // Re-enable button after a short delay
+                    setTimeout(() => {
+                        toggleButton.disabled = false;
+                        statusEl.classList.remove('blink');
+                        // Clear status after a moment
+                        setTimeout(() => {
+                            statusEl.textContent = '';
+                        }, 1500);
+                    }, 500);
+                });
+            } else {
+                // Error case
+                statusEl.textContent = 'Error! Try again';
+                toggleButton.disabled = false;
+                statusEl.classList.remove('blink');
+            }
+        });
+    });
+    
+    function updateUI(isActive) {
+        if (isActive) {
+            toggleButton.classList.add('active');
+            toggleButton.textContent = 'DEACTIVATE';
+        } else {
+            toggleButton.classList.remove('active');
+            toggleButton.textContent = 'ACTIVATE';
+        }
+    }
+});
+</script>
